@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Integration</title>
+    <style>
+        /* Optional styling for the chat button */
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Optional button to manually open the chat -->
+  <button class="chatbot-button" onclick="window.botpressWebChat.sendEvent({ type: 'show' })">
+    Chat with us
+  </button>
+
+  <!-- Botpress Web Chat Integration -->
+  <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/3455b9c6-9222-4c71-81e0-6923fabd850d/webchat/v2.1/config.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      host: 'http://localhost:3000',
+      botId: 'ceb4fb68-e9eb-42ab-8992-d7bb551b74d3',
+      showWidget: true,
+      botName: 'E-Learning Assistant',
+      botAvatarUrl: 'http://YOUR_SERVER_IP:3000/assets/modules/channel-web/default-avatar.png',
+      welcomeMessage: 'Hello! How can I assist you with your learning today?',
+      backgroundColor: '#FFFFFF',
+      textColorOnBackground: '#000000'
+    });
+  </script>
+
+</body>
+</html>
